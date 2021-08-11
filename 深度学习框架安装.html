@@ -3,63 +3,28 @@
 <head>
 <meta charset="UTF-8"> 
 <title>深度学习框架安装</title> 
-<script charset="UTF-8" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-<script charset="UTF-8" src="section.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="prism.js"></script>
 <link rel="icon" href="index.ico" type="image/x-icon" />
-<link charset="UTF-8" rel="stylesheet" href="section.css" type="text/css"/>
-<link charset="UTF-8" href="prism.css" rel="stylesheet" type="text/css"/>
-<script charset="UTF-8" src="prism.js"></script>
+<link rel="stylesheet" href="section.css" type="text/css"/>
+<link href="prism.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="section_menu.css" type="text/css" />
 </head>
 <body>
 <div id="menu">
     <p id="menu_title">深度学习框架安装</p>
         <p id="first_bar"><b>导航</b></p>
-            <div id="second_bar_first">
-                <img class="menu_img_start" src="start.png" />
-                <b id = "second_bar_first_title">Tensorflow简介</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">配套框架Keras</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">CPU与GPU版选哪个</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">安装Anacoda</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">CPU版安装</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">GPU版安装</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">跑起来</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">额外的注意事项</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div id="home"> 返回 </div> 
+		    <div id="content">
+                <div v-bind:class="key==0?'second_bar_first':'second_bar'"  v-on:click="skip(key)" v-for="(value, key) in menu">
+                    <b class = "second_bar_title" >{{ value.name }} </b>
+                </div>
+			</div>
+			<button id="return" onclick="window.location.href = 'index.html'">返回</button>
             <div id = "copy"> <b>&copy;合肥工业大学大创小组</b> </div>
- </div>
+</div>
 <div class="section">
     <h1>Tensorflow安装教程</h1>
-    <h2 id="subsection1">一、Tensorflow简介</h2>
+    <h2 >Tensorflow简介</h2>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;TensorFlow是一个由Google开发的开源框架，是目前社区活跃度最高的深度学习框架之一。借助其灵活的架构，
         用户可以轻松地将计算工作部署到多种平台（CPU、GPU、TPU）和设备（桌面设备、服务器集群、移动设备、边缘设备等）。<br>
@@ -67,18 +32,18 @@
         放在数据流图中计算. 节点（Nodes）在图中表示数学操作,图中的边（edges）则表示在节点间相互联系的多维数据数组, 即张量（tensor)。训练模型时tensor
         会不断的从数据流图中的一个节点flow到另一节点, 这就是TensorFlow名字的由来。
     </p>
-    <h2 id="subsection2">二、配套框架Keras</h2>
+    <h2 >配套框架Keras</h2>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;Keras 是一个用 Python 编写的高级神经网络 API，它能够以 TensorFlow, CNTK, 或者 Theano 作为后端运行。
         Keras 的开发重点是支持快速的实验。能够以最小的时延把你的想法转换为实验结果，是做好研究的关键。<br>
         &nbsp;&nbsp;&nbsp;&nbsp;如果你想要入门深度学习，并取得初步成效，那么Keras将是你最好的选择。
     </p>
-    <h2 id="subsection3">三、CPU与GPU版选哪个</h2>
+    <h2 >CPU与GPU版选哪个</h2>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;由于TensorFlow的GPU版调用了NVINDA的通用并行计算架构，所以，如果你要安装GPU版，需要至少保证你的设备具有<b>一个NVIDA出产的显卡</b>。<br>
         &nbsp;&nbsp;&nbsp;&nbsp;GPU运行TensorFlow的好处是显而易见的，它不会影响你日常的电脑操作，且GPU和CPU版在深度学习方面的计算性能有明显差别（据说）。
     </p>
-    <h2 id="subsection4">四、安装Anacoda</h2>
+    <h2 >安装Anacoda</h2>
     <p>
         Anaconda是一个用于科学计算的Python发行版，支持 Linux, Mac, Windows系统，提供了包管理与环境管理的功能，可以很方便地解决多版本python并存、切换以及
         各种第三方包安装问题。Anaconda利用工具/命令conda来进行package和environment的管理，并且已经包含了Python和相关的配套工具。<br>
@@ -120,7 +85,7 @@
 </pre>
         <img class="section_img" src="5.png" />
     </p>
-    <h2 id="subsection5">五、CPU版安装</h2>
+    <h2 >CPU版安装</h2>
     <p>
         使用pip安装tensorflow
 <pre>
@@ -128,7 +93,7 @@
 </pre>
         <img class="section_img" src="6.png" />
     </p>
-    <h2 id="subsection6">六、GPU版安装</h2>
+    <h2 >GPU版安装</h2>
     <p>
         1.先安装CUDA<br>
         <a href="https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_win10" download="https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_win10"> 点击下载 CUDA 10.0 版</a>
@@ -152,7 +117,7 @@
 </pre>
     <img class="section_img" src="6.png" />
     </p>
-    <h2 id="subsection7">七、跑起来</h2>
+    <h2>跑起来</h2>
     没有爆一大堆红字是一个安装成功的好兆头，接下来用程序验证你的tensorflow是否成功安装
 <pre>
 <code class="language-python">import tensorflow as tf
@@ -181,7 +146,7 @@ print(sess.run(c)))</code>
     2.如果是复制代码，输入python后回车，再把复制过后的代码粘贴进去后回车<br>
     3.如果是使用.py文件，输入python后敲一个空格，并把文件拖到Anaconda Prompt窗口，之后回车<br>
     </p>
-    <h2 id="subsection8">八、额外的注意事项</h2>
+    <h2 id="subsection8">额外的注意事项</h2>
     <p>
         1.Anaconda Prompt 和 Anaconda Powershell Prompt不一样，不能在Anaconda Powershell Prompt装tensorflow<br>
         2.不要在命令提示器里装tensorflow<br>
@@ -189,5 +154,7 @@ print(sess.run(c)))</code>
         4.python的报错只需要复制最后一段，其他的你随意
     </p>
 </div>
+<script src="section_menu.js"></script>
+<script src="section.js"></script>
 </body>
 </html>

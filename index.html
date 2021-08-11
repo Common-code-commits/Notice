@@ -2,57 +2,19 @@
 <html meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <head>
     <title>大创通知</title>
-    <script charset="utf-8" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script charset="utf-8" language="javascript" type="text/javascript" src="index.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <link rel="icon" href="index.ico" type="image/x-icon" />
-    <link charset="utf-8" rel="stylesheet" href="index.css" type="text/css" />
+    <link charset="utf-8" rel="stylesheet" href="menu.css" type="text/css" />
 </head>
-<body>
-<img id = "bg" src="background.jpg" />
+<body background="background.jpg">
 <div id="menu">
     <p id="menu_title">大创通知</p>
         <p id="first_bar"><b>导航</b></p>
-            <div id="second_bar_first" href="深度学习框架安装.html">
-                <img class="menu_img_start" src="start.png" />
-                <b id = "second_bar_first_title" >深度学习框架安装</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">等待更新</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">等待更新</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">等待更新</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">等待更新</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">等待更新</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">等待更新</b>
-                <img class="menu_img_end" src="end.png" />
-            </div>
-            <div class="second_bar">
-                <img class="menu_img_start" src="start.png" />
-                <b class = "second_bar_title">等待更新</b>
-                <img class="menu_img_end" src="end.png" />
+            <div v-bind:class="key==0?'second_bar_first':'second_bar'" v-on:click.left="skip(value)" v-for="(value, key) in menu">
+                <b class = "second_bar_title" >{{ value.name }} </b>
             </div>
             <div id = "copy"> <b>&copy;合肥工业大学大创小组</b> </div>
 </div>
+<script src="menu.js"></script>
 </body>
 </html>
