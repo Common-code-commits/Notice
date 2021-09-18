@@ -22,10 +22,16 @@ new Vue({
 				}
 				xmlhttp.onreadystatechange=function()
 				{
+					let open = window.location.href.indexOf("index.html")
+					let url
+					if( open != -1 )
+						url = "html\\" + value['url']
+					else
+						url = value['url']
 				    if (xmlhttp.status==200  || xmlhttp.status == 0 )
 					{
 					   if(xmlhttp.readyState==4)
-							window.location.href = "html\\" + value['url']						
+							window.location.href = url 						
 					}
 				}
 				xmlhttp.open("GET",value['url'],true)
