@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Github入门篇</title>
+		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+		<script src="../js/prism.js"></script>
+		<link rel="icon" href="../src/index.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../css/section.css" type="text/css" />
+		<link href="../css/prism.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../css/section_menu.css" type="text/css" />
+		<link rel="stylesheet" href="../css/tabbar.css" type="text/css" />
+		<style>
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			body {
+				display: flex;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="menu">
+			<p id="menu_title">Github入门篇</p>
+			<p id="first_bar"><b>导航</b></p>
+			<div id="content">
+				<div v-bind:class="key==0?'second_bar_first':'second_bar'" v-on:click="skip(key)"
+					v-for="(value, key) in menu">
+					<b class="second_bar_title">{{ value.name }}</b>
+				</div>
+			</div>
+			<div id="copy"> <b>&copy;合肥工业大学大创小组</b> </div>
+		</div>
+		<div id="content_right">
+			<div id="tabbar">
+				<button id="return" v-on:click.left="Return"></button>
+			</div>
+			<div id="section">
+				<h1>Github入门</h1>
+				<h2>Github简介</h2>
+				<p>
+					GitHub 是一个利用 Git 进行版本控制、专门用于存放软件代码与内容的共享虚拟主机服务。
+					早期，付费用户可以创建私人仓库，免费用户可以创建公共仓库，现在付费用户和免费用户都可以创建私有仓库。<br>
+					下面简要介绍Github网站各个按钮的作用
+				</p>
+				<h2>Sign Up(注册)</h2>
+				<p>
+				    首先输入你的邮箱
+					<img class="section_img" src="../src/Sign_Up_1.png" />
+					<img class="section_img" src="../src/Sign_Up_2.png" />
+					<a target="_blank" href="http://www.dooccn.com/python3/#id/b7e65afba5e2ad89151c0ad09fa04d3d">点击跳转瞎吉儿取名器</a>
+					取个高强度密码，以及用上面的工具创建用户名
+					<img class="section_img" src="../src/Sign_Up_3.png" />
+					填写验证码
+					<img class="section_img" src="../src/Sign_Up_4.png" />
+				</p>
+				<h2>Repository(仓库)</h2>
+					<img class="section_img" src="../src/Repository.png" />
+				如何使用使用github去创建一个远程仓库
+				<ul>
+					<li>点击头像 》 your profile</li>
+					<li>点击respositories</li>
+					<li>点击右上角的new</li>
+					<li>输入仓库名称（仓库名不能有中文）</li>
+					<li>在倒数两个框里，分别选择仓库是否开放和仓库要带有什么文件</li>
+					<li>点击create repository</li>
+				</ul>
+				仓库创建完毕后，得到下面的界面
+				<img class="section_img" src="../src/Github.png" />
+				<h2>Git与Github关联</h2>
+					<p>
+					这一步并不是一定要执行的。如果Git与Github没有关联，每次提交代码时也只需要输入密码和账号，以及提交地址必须为https.<br>
+					首先创建.ssh目录，使用以下命令
+					</p>
+					
+<pre>
+<code class="language-git">
+mkdir .ssh
+</code>		
+</pre>
+				<p>接着跳转到.ssh目录</p>
+<pre>
+<code class="language-git">
+cd .ssh
+</code>		
+</pre>
+				<p>然后使用命令生成公钥</p>
+<pre>
+<code class="language-git">//""内为你的邮箱地址，一定要和前面账户级配置一样
+ssh-keygen -t rsa -C "email"
+</code>		
+</pre>		
+				<p>
+					如果正常运行的话，会出现
+					<strong>Enter passphrase (empty for no passphrase):</strong>或者<strong>Overwrite (y/n)?</strong><br>
+					回车，出现<strong>Enter same passphrase again: </strong>再次回车<br>
+					使用以下命令，执行生成的id_rsa.pub文件
+				</p>
+<pre>
+<code class="language-git">cat id_rsa.pub
+</code>		
+</pre>	
+				<img class="section_img" src="../src/Sign_Up_5.png" />
+				<p>点开头像，点击setting,进入下面的界面后点击SSH and GPG keys，点击New SSH Keys，随便搞个名字，然后把公钥粘贴进去</p>
+				<img class="section_img" src="../src/SSH_Keys.png" />
+				<h2>Branches(分支)</h2>
+				<p>
+					分支是在同一时间在不同版本的存储库的工作方式。默认情况下，你的文档库中有一个名为master的分支，其被认为是默认的分支。<br>
+					github也能创建和管理分支，具体参考下面的链接
+					<a target="_blank" href="https://www.cnblogs.com/leilei0327/p/7041353.html">github创建分支</a>
+					下面主要讲怎么使用Git创建和管理分支。<br>
+				</p>
+<pre>
+<code class="language-git">//commit节点参照Git基础篇
+git branch "分支名称" commit节点名称
+//查看所有分支
+git branch
+//git branch如果后面没有跟commit节点 默认最新节点
+</code>		
+</pre>	
+				<p>
+					创建分支后可以使用命令切换分支
+				</p>
+<pre>
+<code class="language-git">//分支名称不需要引号
+git checkout 分支名称
+//切换分支前需要commmit当前分支，如果没有则会停止切换，并弹出警告
+//如果不想保存修改，又想切换分支，使用命令
+git checkout -f 分支名称
+</code>		
+</pre>
+				<p>
+					如果要删除分支，请先将分支切换后再执行下面的删除分支指令
+				</p>
+<pre>
+<code class="language-git">git branch -d 要删除的分支名称
+</code>		
+</pre>	
+				<p>
+					如果要修改分支名称，请先将分支切换到要修改的分支后再执行下面的修改指令
+				</p>
+<pre>
+<code class="language-git">git branch -m 新名称
+</code>		
+</pre>	
+				<p>
+					分支修改结束后，需要将其合并到主分支(分支是版本，修改完毕后就需要和主版本合并起来)
+				</p>
+<pre>
+<code class="language-git">//切换到主分支
+git checkout master
+//合并分支,将需要合并的分支和主分支合并在一起
+git merge 分支名称
+</code>		
+</pre>	
+				<h2>Pull Request(提交请求)</h2>
+			</div>
+		</div>
+		<script src="../js/section_menu.js"></script>
+		<script src="../js/section.js"></script>
+		<script src="../js/tabbar.js"></script>
+	</body>
+</html>

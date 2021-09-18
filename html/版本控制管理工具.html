@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>版本管理工具</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <link rel="icon" href="../src/index.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/mul_menu_bar.css">
+	<link charset="utf-8" rel="stylesheet" href="../css/tabbar.css" type="text/css" />
+	<link charset="utf-8" rel="stylesheet" href="../css/item_bar.css" type="text/css" />
+	<style>
+		html,body {
+		  color: #2c3e50;
+		  background: #ecf0f1;
+		  padding:0;
+		  margin:0;
+		  height:100%;
+		}
+		body
+		{
+			display:flex;
+			flex-wrap: wrap;
+		}
+	</style>
+</head>
+<body>
+	<div id="content_right">
+		<div id="tabbar">
+			<button id="return" v-on:click.left="Return"></button>
+		</div>
+		<div id="item_bar">
+			<div id="item_bar_style">
+				<div  
+					v-bind:style=" 'background-color:' + value.color " 
+					v-on:click.left="skip(value)" 
+					class = "item_bar_title" 
+					v-for="(value, key) in menu"
+				>
+					<b>{{value.name}}</b>
+				</div>  
+			</div>
+		</div>
+	</div>
+<script src="../js/Git_Data.js"></script>
+<script src="../js/item_bar.js"></script>
+<script src="../js/tabbar.js"></script>
+</body>
+</html>

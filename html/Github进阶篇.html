@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>Git简介及安装配置</title> 
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="../js/prism.js"></script>
+<link rel="icon" href="../src/index.ico" type="image/x-icon" />
+<link rel="stylesheet" href="../css/section.css" type="text/css"/>
+<link href="../css/prism.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="../css/section_menu.css" type="text/css" />
+<link rel="stylesheet" href="../css/tabbar.css" type="text/css" />
+<style>
+	html, body {
+	    margin: 0;
+	    padding: 0;
+		width:100%;
+		height:100%;
+	}
+	body
+	{
+		display:flex;
+	}
+</style>
+</head>
+<body>
+<div id="menu">
+    <p id="menu_title">Git简介及安装配置</p>
+        <p id="first_bar"><b>导航</b></p>
+		    <div id="content">
+                <div v-bind:class="key==0?'second_bar_first':'second_bar'"  v-on:click="skip(key)" v-for="(value, key) in menu">
+                    <b class = "second_bar_title" >{{ value.name }} </b>
+                </div>
+			</div>
+            <div id = "copy"> <b>&copy;合肥工业大学大创小组</b> </div>
+</div>
+<div id="content_right">
+	<div id="tabbar">
+			<button id="return" v-on:click.left="Return"></button>
+	</div>
+	<div id="section">
+	    <h1>Git安装教程</h1>
+		<h2>Watch(监听)</h2>
+		<h2>Issue(问题)</h2>
+	</div>
+</div>
+<script src="../js/section_menu.js"></script>
+<script src="../js/section.js"></script>
+<script src="../js/tabbar.js"></script>
+</body>
+</html>

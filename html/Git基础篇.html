@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>Git基础篇</title> 
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="../js/prism.js"></script>
+<link rel="icon" href="../src/index.ico" type="image/x-icon" />
+<link rel="stylesheet" href="../css/section.css" type="text/css"/>
+<link href="../css/prism.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="../css/section_menu.css" type="text/css" />
+<link rel="stylesheet" href="../css/tabbar.css" type="text/css" />
+<style>
+	html, body {
+	    margin: 0;
+	    padding: 0;
+		width:100%;
+		height:100%;
+	}
+	body
+	{
+		display:flex;
+	}
+</style>
+</head>
+<body>
+<div id="menu">
+    <p id="menu_title">Git基础篇</p>
+        <p id="first_bar"><b>导航</b></p>
+		    <div id="content">
+                <div v-bind:class="key==0?'second_bar_first':'second_bar'"  v-on:click="skip(key)" v-for="(value, key) in menu">
+                    <b class = "second_bar_title" >{{ value.name }} </b>
+                </div>
+			</div>
+            <div id = "copy"> <b>&copy;合肥工业大学大创小组</b> </div>
+</div>
+<div id="content_right">
+	<div id="tabbar">
+			<button id="return" v-on:click.left="Return"></button>
+	</div>
+	<div id="section">
+	    <h1>Git基础篇</h1>
+	    <h2 >将文件存入文档库</h2>
+	    <p>
+			Git是版本控制工具，而Github则是Git存储文件的一个远程仓库。事实上，任意一个具有同步功能的网盘服务或服务器都可以被充当Git的远程仓库。<br>
+			Github提供了简易的仓库创建功能，但如果项目结构复杂，使用Github的创建仓库将会是一个比较痛苦的过程<br>
+			在这里，我们通过在本地创建文档库的方法创建远程仓库<br>
+			<strong>首先</strong>，我们任意创建一个文件夹作为项目文件的存放地(或者直接用项目文件夹也可)。打开<strong>Git Bash</strong>，跳转文件夹
+		</p>
+<pre>
+<code class="language-git">cd "文件夹绝对路径"
+// 例子
+cd C:\\Users\\My-pc\\Desktop\\Notice
+</code>		
+</pre>
+        <p>执行指令，在文件中创建文档库</p>
+<pre>
+<code class="language-git">git init
+</code>		
+</pre>		   
+		<p>在Git中，要被保存到文档库的文件通常可分为三类：</p>
+		<ul>
+			<li>被追踪的</li>
+			<li>忽略的</li>
+			<li>不被追踪的</li>
+		</ul>
+		<p>所有的文件开始时都是不被追踪的。只有被加入文档库中的文件才会被追踪。被追踪的文件会同步被更新到文档库。<br>
+		把单个文件加入文档库的命令是</p>
+<pre>
+<code class="language-git">//这里的文件路径不需要加引号
+git add 文件相对路径
+</code>		
+</pre>	
+		<p>把多个文件加入</p>
+<pre>
+<code class="language-git">//这里的文件路径不需要加引号
+git add 文件1相对路径 文件2相对路径 文件3相对路径 ... 文件n相对路径
+</code>		
+</pre>
+		<p>提交文件夹</p>
+<pre>
+<code class="language-git">//这里的文件路径不需要加引号
+git add 文件夹路径
+</code>		
+</pre>
+		<p>提交多个文件夹</p>
+<pre>
+<code class="language-git">//这里的文件路径不需要加引号
+git add 文件夹1相对路径 文件夹2相对路径 文件夹3相对路径 ... 文件夹n相对路径
+</code>		
+</pre>
+		<p>提交文件夹里所有的.html</p>
+<pre>
+<code class="language-git">//这里的文件路径不需要加引号
+git add 正则匹配路径
+//提交home文件夹里所有的.html
+git home/*.html
+//提交home文件夹里所有文件
+git config/*
+</code>	
+</pre>
+		<p>
+         有些编译产生的中间文件显然不是源码的一部分，我们希望在上传的时候忽略它们，因此可以把这些文件设为忽略状态，这样Git就不会上传这些文件，
+		 更不会记录他的变更状态<br>
+		 <strong>使用命令创建.gitignore文件(这就是文件全名，不是后缀)</strong></p>
+<pre>
+<code class="language-git">touch .gitignore
+</code>	
+</pre>
+		<p>使用任意的文本编辑器打开，复制Git小组规范中的模板<br>
+		有时候我们需要删除文档，命令如下
+		</p>
+<pre>
+<code class="language-git">//没有执行过git commit，且不想让文件消失
+git rm --cached 文件名
+//没有执行过git commit，想让文件消失
+git rm --cached 文件名
+//执行过git commit
+git reset --HEAD 文件名
+//怎么删除多个文件，文件夹等，用法和添加时是一样的
+</code>	
+</pre>
+		<p><strong>确定添加完毕后，我们输入一下指令提交</strong>
+		</p>
+<pre>
+<code class="language-git">git commit '这次版本的说明'
+//以上是说明较短的情况，文字较长时，应该输入下面的命令
+git commit
+//输入该命令后，自动打开文本编辑器，在里面写好说明后保存退出即可
+</code>	
+</pre>
+		<p><strong>如果不想推送到仓库的话，现在就可以关闭Git Bash了。当然，如果你怕出现意外的话，可以使用命令的方式退出。</strong>
+		</p>
+<pre>
+<code class="language-git">exit
+</code>	
+</pre>
+	    <h2 >比较文件差异</h2>
+	    <p>
+			git自带的比较工具和比较方式太过抽象，推荐大家使用WinMerge(其实你也可以完全不用文件对比)<br>
+			使用命令，将文本比较工具改为WinMerge
+	        <a href="https://cr6.9pj8m.com/winmerge-v2.16.14.zip"  download="winmerge-v2.16.14.zip">点击下载WinMerge</a>
+	    </p>
+<pre>
+<code class="language-git">git config --global diff.tool  WinMerge
+git config --global difftool.WinMerge.cmd  "'文件路径'  \"\$LOCAL\"  \"\$REMOTE\""
+git config --global  difftool.prompt  false
+//例子
+git config --global diff.tool  WinMerge
+git config --global difftool.WinMerge.cmd  "'D:\\winmerge-v2.16.14\\winmerge-v2.16.14.exe'  \"\$LOCAL\"  \"\$REMOTE\""
+git config --global  difftool.prompt  false
+</code>	
+</pre>
+	    <p>
+			切换好后，如果想要比较，直接执行命令即可即可
+	    </p>
+<pre>
+<code class="language-git">git diff
+</code>	
+</pre>
+	    <h2 >从文档库取出文件</h2>			
+	    <p>
+             取出相对比较简单，使用以下命令
+	    </p>
+<pre>
+<code class="language-git">git checkout commit结点或标签 文件1 文件2
+//取文件夹等和添加的情况一样
+</code>	
+</pre>
+	    <p>
+             commit结点可以使用命令查看
+	    </p>
+<pre>
+<code class="language-git">gitk
+</code>	
+</pre>
+		<p>配置完以后，下次不登陆账号，提交代码时自动默认配置的姓名和邮箱，登录账户后提交代码时默认账户配置的姓名和邮箱</p>
+	    <h2 >Git更改文件名称</h2>
+<pre>
+<code class="language-git">
+git add -A 新文件名
+//或
+git mv 旧文件名 新文件名
+</code>	
+</pre>
+<pre>
+<code class="language-git">git config --global core.editor " "文本编辑器绝对路径" -multiInst -notabbar -nosession -noPlugin"
+//例子如下
+git config --global core.editor " "D:/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin"
+</code>		
+</pre>
+	    <h2 >Git文档库清理</h2>
+<pre>
+<code class="language-git">git gc
+</code>		
+</pre>
+	</div>
+</div>
+<script src="../js/section_menu.js"></script>
+<script src="../js/section.js"></script>
+<script src="../js/tabbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title>Git简介及安装配置</title> 
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="../js/prism.js"></script>
+<link rel="icon" href="../src/index.ico" type="image/x-icon" />
+<link rel="stylesheet" href="../css/section.css" type="text/css"/>
+<link href="../css/prism.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="../css/section_menu.css" type="text/css" />
+<link rel="stylesheet" href="../css/tabbar.css" type="text/css" />
+<style>
+	html, body {
+	    margin: 0;
+	    padding: 0;
+		width:100%;
+		height:100%;
+	}
+	body
+	{
+		display:flex;
+	}
+</style>
+</head>
+<body>
+<div id="menu">
+    <p id="menu_title">Git简介及安装配置</p>
+        <p id="first_bar"><b>导航</b></p>
+		    <div id="content">
+                <div v-bind:class="key==0?'second_bar_first':'second_bar'"  v-on:click="skip(key)" v-for="(value, key) in menu">
+                    <b class = "second_bar_title" >{{ value.name }} </b>
+                </div>
+			</div>
+            <div id = "copy"> <b>&copy;合肥工业大学大创小组</b> </div>
+</div>
+<div id="content_right">
+	<div id="tabbar">
+			<button id="return" v-on:click.left="Return"></button>
+	</div>
+	<div id="section">
+	    <h1>Git安装教程</h1>
+	    <h2 >Git简介</h2>
+	    <p>
+	         Git是Linus Torvalds为了帮助管理Linux内核开发而开发的一个开放源码的版本控制软件。不同于SVN，
+			 它是一个开源的分布式版本控制系统。<br>
+			  开源的特性让众多的社区高手可以加入Git的编写当中，从世纪之处发展到现在，Git事实上已经成为世界上最先进的分布式版本控制系统，
+			 被用于敏捷高效地处理任何或小或大的项目。<br>
+			 Git的使用与现代图行化交互不同，它的使用要输入许多的命令行。繁琐的交互方式好像使得它相对于手动保存毫无优势，但无论是大型的编程项目还是
+			 多人合作的文档，我们总是会遇到下列问题:
+		</p>
+	        <ul>
+				<li>文件多次修改，文件夹里存在很多的第一版，第二版，乃至第N版，占用资源却不敢删</li>
+				<li>需要某个时间修改的版本，但修改人忘了自己什么时候修改了</li>
+				<li>两个人修改了同一份文件，且文档或代码较长，查看对方修改了那一部分要花费大量时间</li>
+				<li>需要查看多个版本的修改原因，到处发消息询问</li>
+				<li>...</li>
+			</ul>
+		<p>
+			显然，原始的手动保存在稍显规模的项目中存在的诸多弊病，因此一个版本管理工具就显得尤为必要。<br>
+			由于时间有限，且不是全部功能需要使用到。所以本着万事从简的准则，只是挑选了一些必要功能和配置进行说明<br>
+	    </p>
+	    <h2 >Git安装</h2>
+	    <p>
+			无脑next就行，开源软件也不需要破解，安装路径无要求
+	        <a href="../file/Git-2.28.0-64-bit.exe"  download="Git-2.28.0-64-bit.exe">点击下载Git</a>
+			<img class="section_img" src="../src/Git_bash.png" />
+            安装成功后点击菜单中的Git Bash，应该会出现上图。
+	    </p>
+	    <h2 >Git全局配置</h2>			
+	    <p>
+			事实上，Git的配置文件有系统级，账户级和文件级三级。作用范围排序为<strong>系统级>账户级>文件级</strong>，
+			优先级排序为<strong>系统级<账户级<文件级</strong>，在绝大部分情况下，我们只需要配置系统级和账户级的属性即可。<br>
+			首先，启动Git Bash，配置系统级。输入以下命令，配置系统属性<br>
+	    </p>
+<pre>
+<code class="language-git">//姓名最好是自己的真实姓名
+git config --system user.name '操作者姓名'
+//例子如下
+git config --system user.name '马老师'
+</code>		
+</pre>
+<pre>
+<code class="language-git">//邮箱最好是自己的Github的注册邮箱
+git config --system user.name '操作者email'
+//例子如下
+git config --system user.email '1314520@qq.com'
+</code>		
+</pre>
+		<p>账户属性默认配置也很简单，输入以下命令（怎么登录Github请参考Github入门篇）</p>
+<pre>
+<code class="language-git">git config --global user.name '操作者姓名'
+//例子如下
+git config --global user.name '马老师'
+</code>		
+</pre>
+<pre>
+<code class="language-git">git config --global user.name '操作者email'
+//例子如下
+git config --global user.email '1314520@qq.com'
+</code>		
+</pre>
+		<p>配置完以后，下次不登陆账号，提交代码时自动默认配置的姓名和邮箱，登录账户后提交代码时默认账户配置的姓名和邮箱</p>
+	    <h2 >Git文本编辑器切换</h2>
+		<p>
+			Git由于是Linus编写的，其默认的编辑器也是Linux系统默认的Vim编辑器，该编辑器功能强大，
+			但命令实在过于复杂，在初学阶段，可以将其换为其他图形化操作的文本编辑器。<br>
+			使用以下命令，切换文本编辑器
+		</p>
+<pre>
+<code class="language-git">git config --global core.editor " "文本编辑器绝对路径" -multiInst -notabbar -nosession -noPlugin"
+//例子如下
+git config --global core.editor " "D:/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin"
+</code>		
+</pre>
+	    <h2 >Git配置文件查看</h2>
+<pre>
+<code class="language-git">//查看系统级配置文件
+git config --system -l
+//查看账户级配置文件
+git config --global -l
+</code>		
+</pre>
+	</div>
+</div>
+<script src="../js/section_menu.js"></script>
+<script src="../js/section.js"></script>
+<script src="../js/tabbar.js"></script>
+</body>
+</html>

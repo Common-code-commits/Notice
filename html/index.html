@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>大创通知</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <link rel="icon" href="../src/index.ico" type="image/x-icon" />
+    <link charset="utf-8" rel="stylesheet" href="../css/menu.css" type="text/css" />
+	<link charset="utf-8" rel="stylesheet" href="../css/content_right.css" type="text/css" />
+	<link charset="utf-8" rel="stylesheet" href="../css/tabbar.css" type="text/css" />
+	<style>
+	   html,body{
+		   height: 100%;
+		   margin: 0;
+		   padding: 0;
+	   }
+	   body{
+		   display:flex;
+	   }
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<p id="menu_title">大创通知</p>
+			<p id="first_bar"><b>导航</b></p>
+				<div v-bind:class="key==0?'second_bar_first':'second_bar'" v-on:click.left="skip(value)" v-for="(value, key) in menu">
+					<b class = "second_bar_title" >{{value.name}} </b>
+				</div>
+				<div id = "copy"> <b>&copy;合肥工业大学大创小组</b> </div>
+	</div>
+	<div id="content_right">
+		<div id="tabbar">
+		</div>
+		<div id="item_bar">
+			<div id="item_bar_style">
+				<div  
+					v-bind:style=" 'background-color:' + value.color " 
+					v-on:click.left="skip(value)" 
+					class = "item_bar_title" 
+					v-for="(value, key) in menu"
+				>
+					<b>{{value.name}}</b>
+				</div>  
+			</div>
+		</div>
+	</div>
+<script src="../js/menu.js"></script>
+<script src="../js/content_right.js"></script>
+<script src="../js/tabbar.js"></script>
+</body>
+</html>
