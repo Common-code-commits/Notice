@@ -24,7 +24,7 @@ new Vue({
             if (value['url'] == undefined)
                 alert('正在施工')
             else
-                window.location.href = value['url']
+                window.location.href = "html\\"+value['url']
         }
     }
 })
