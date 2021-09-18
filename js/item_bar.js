@@ -25,10 +25,8 @@ new Vue({
 				    if (xmlhttp.status==200  || xmlhttp.status == 0 )
 					{
 					   if(xmlhttp.readyState==4)
-							window.location.href = value['url']						
+							window.location.href = "html\\" + value['url']						
 					}
-					else
-						alert(xmlhttp.status)
 				}
 				xmlhttp.open("GET",value['url'],true)
 				xmlhttp.send()

@@ -37,5 +37,8 @@ let vue_tabbar = new Vue({
 	created:function()
 	{
 		this.setHistroyUrl()
+	},
+	destroyed:function(){
+		sessionStorage.clear()
 	}
 })
