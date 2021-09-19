@@ -43,10 +43,8 @@ new Vue({
 					   if(xmlhttp.readyState==4)
 							window.location.href = "html\\" + value['url']						
 					}
-					else
-						alert(xmlhttp.status)
 				}
-				xmlhttp.open("GET",value['url'],true)
+				xmlhttp.open("GET","html\\" + value['url'],true)
 				xmlhttp.send()
 			}
         },
