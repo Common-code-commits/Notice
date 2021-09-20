@@ -22,8 +22,7 @@ let vue_tabbar = new Vue({
 				}
 				else
 				{
-					alert("不要盗链哦！")
-					window.location.href = "./index.html"
+					window.location.href = "../index.html"
 				}
 			}
 			let url=sessionStorage.getItem("url["+head +"]")
