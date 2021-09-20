@@ -50,13 +50,11 @@
 <pre>
 <code class="language-git">cd "文件夹绝对路径"
 // 例子
-cd C:\\Users\\My-pc\\Desktop\\Notice
-</code>		
+cd C:\\Users\\My-pc\\Desktop\\Notice</code>		
 </pre>
         <p>执行指令，在文件中创建文档库</p>
 <pre>
-<code class="language-git">git init
-</code>		
+<code class="language-git">git init</code>		
 </pre>		   
 		<p>在Git中，要被保存到文档库的文件通常可分为三类：</p>
 		<ul>
@@ -68,26 +66,22 @@ cd C:\\Users\\My-pc\\Desktop\\Notice
 		把单个文件加入文档库的命令是</p>
 <pre>
 <code class="language-git">//这里的文件路径不需要加引号
-git add 文件相对路径
-</code>		
+git add 文件相对路径</code>		
 </pre>	
 		<p>把多个文件加入</p>
 <pre>
 <code class="language-git">//这里的文件路径不需要加引号
-git add 文件1相对路径 文件2相对路径 文件3相对路径 ... 文件n相对路径
-</code>		
+git add 文件1相对路径 文件2相对路径 文件3相对路径 ... 文件n相对路径</code>		
 </pre>
 		<p>提交文件夹</p>
 <pre>
 <code class="language-git">//这里的文件路径不需要加引号
-git add 文件夹路径
-</code>		
+git add 文件夹路径</code>		
 </pre>
 		<p>提交多个文件夹</p>
 <pre>
 <code class="language-git">//这里的文件路径不需要加引号
-git add 文件夹1相对路径 文件夹2相对路径 文件夹3相对路径 ... 文件夹n相对路径
-</code>		
+git add 文件夹1相对路径 文件夹2相对路径 文件夹3相对路径 ... 文件夹n相对路径</code>		
 </pre>
 		<p>提交文件夹里所有的.html</p>
 <pre>
@@ -96,16 +90,14 @@ git add 正则匹配路径
 //提交home文件夹里所有的.html
 git home/*.html
 //提交home文件夹里所有文件
-git config/*
-</code>	
+git config/*</code>	
 </pre>
 		<p>
          有些编译产生的中间文件显然不是源码的一部分，我们希望在上传的时候忽略它们，因此可以把这些文件设为忽略状态，这样Git就不会上传这些文件，
 		 更不会记录他的变更状态<br>
 		 <strong>使用命令创建.gitignore文件(这就是文件全名，不是后缀)</strong></p>
 <pre>
-<code class="language-git">touch .gitignore
-</code>	
+<code class="language-git">touch .gitignore</code>	
 </pre>
 		<p>使用任意的文本编辑器打开，复制Git小组规范中的模板<br>
 		有时候我们需要删除文档，命令如下
@@ -117,8 +109,7 @@ git rm --cached 文件名
 git rm --cached 文件名
 //执行过git commit
 git reset --HEAD 文件名
-//怎么删除多个文件，文件夹等，用法和添加时是一样的
-</code>	
+//怎么删除多个文件，文件夹等，用法和添加时是一样的</code>	
 </pre>
 		<p><strong>确定添加完毕后，我们输入一下指令提交</strong>
 		</p>
@@ -126,14 +117,12 @@ git reset --HEAD 文件名
 <code class="language-git">git commit '这次版本的说明'
 //以上是说明较短的情况，文字较长时，应该输入下面的命令
 git commit
-//输入该命令后，自动打开文本编辑器，在里面写好说明后保存退出即可
-</code>	
+//输入该命令后，自动打开文本编辑器，在里面写好说明后保存退出即可</code>	
 </pre>
 		<p><strong>如果不想推送到仓库的话，现在就可以关闭Git Bash了。当然，如果你怕出现意外的话，可以使用命令的方式退出。</strong>
 		</p>
 <pre>
-<code class="language-git">exit
-</code>	
+<code class="language-git">exit</code>	
 </pre>
 	    <h2 >比较文件差异</h2>
 	    <p>
@@ -148,15 +137,13 @@ git config --global  difftool.prompt  false
 //例子
 git config --global diff.tool  WinMerge
 git config --global difftool.WinMerge.cmd  "'D:\\winmerge-v2.16.14\\winmerge-v2.16.14.exe'  \"\$LOCAL\"  \"\$REMOTE\""
-git config --global  difftool.prompt  false
-</code>	
+git config --global  difftool.prompt  false</code>	
 </pre>
 	    <p>
 			切换好后，如果想要比较，直接执行命令即可即可
 	    </p>
 <pre>
-<code class="language-git">git diff
-</code>	
+<code class="language-git">git diff</code>	
 </pre>
 	    <h2 >从文档库取出文件</h2>			
 	    <p>
@@ -164,15 +151,13 @@ git config --global  difftool.prompt  false
 	    </p>
 <pre>
 <code class="language-git">git checkout commit结点或标签 文件1 文件2
-//取文件夹等和添加的情况一样
-</code>	
+//取文件夹等和添加的情况一样</code>	
 </pre>
 	    <p>
              commit结点可以使用命令查看
 	    </p>
 <pre>
-<code class="language-git">gitk
-</code>	
+<code class="language-git">gitk</code>	
 </pre>
 		<p>配置完以后，下次不登陆账号，提交代码时自动默认配置的姓名和邮箱，登录账户后提交代码时默认账户配置的姓名和邮箱</p>
 	    <h2 >Git更改文件名称</h2>
@@ -180,19 +165,16 @@ git config --global  difftool.prompt  false
 <code class="language-git">
 git add -A 新文件名
 //或
-git mv 旧文件名 新文件名
-</code>	
+git mv 旧文件名 新文件名</code>	
 </pre>
 <pre>
 <code class="language-git">git config --global core.editor " "文本编辑器绝对路径" -multiInst -notabbar -nosession -noPlugin"
 //例子如下
-git config --global core.editor " "D:/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin"
-</code>		
+git config --global core.editor " "D:/Notepad++/notepad++.exe" -multiInst -notabbar -nosession -noPlugin"</code>		
 </pre>
 	    <h2 >Git文档库清理</h2>
 <pre>
-<code class="language-git">git gc
-</code>		
+<code class="language-git">git gc</code>		
 </pre>
 	</div>
 </div>
