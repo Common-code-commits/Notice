@@ -20,10 +20,16 @@ let vm_menu = new Vue({
 			 before.style.height = "100vh"
 			 let menu = document.getElementById("menu")
 			 document.body.insertBefore(before,menu)
+		},
+		setTitle:function(){
+			let title = document.getElementById("menu_title")
+			let text = decodeURIComponent(window.location.href.substring(window.location.href.lastIndexOf("/")+1, window.location.href.lastIndexOf(".")))
+			title.innerHTML = text
 		}
     },
 	created: function(){
 		this.getdata()
 		this.place_block()
+		this.setTitle()
 	}
 })

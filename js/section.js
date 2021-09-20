@@ -39,17 +39,23 @@ var vm_section = new Vue({
 				e.target.className = "section_img_click"
 			else
 				e.target.className = "section_img"
-		}
+		},
+		setTitle:function(){
+			let title = document.querySelectorAll("#section h1")
+			let text = decodeURIComponent(window.location.href.substring(window.location.href.lastIndexOf("/")+1, window.location.href.lastIndexOf(".")))
+			title[0].innerHTML = text
+		},
 	},
 	mounted:function()
 	{
-		this.img_button()		
+		this.img_button()	
 	},
 	created: function() {
 		this.setorder()
 		this.setid()
 		this.set_tabbar()
 		this.indentation()
+		this.setTitle()
 	}
 })
 

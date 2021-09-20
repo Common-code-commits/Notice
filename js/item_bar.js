@@ -38,5 +38,5 @@ new Vue({
 				xmlhttp.send()
 			}
         },
-    }
+    },
 })

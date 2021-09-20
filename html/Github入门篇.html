@@ -151,12 +151,29 @@ git checkout master
 git merge 分支名称</code>		
 </pre>
 				<h2>clone(拉取远程代码)</h2>
-				<p>使用clone命令将仓库中的代码拉到本地文件夹</p>
+				<p>如果项目代码是第一次获取，使用clone命令将仓库中的代码拉到本地文件夹</p>
 				<pre>
 <code class="language-git">git clone https地址\ssh地址
 //使用https地址的话，需要配置令牌，而且30天过期不是很方便
 //如果使用ssh地址，只要按上面的配置后，命令就会正常执行了
 //克隆会把全部文件克隆下来，如果只是想要部分文件，请使用浏览器插件</code>		
+</pre>
+				<p>克隆完毕后，可以将远程仓库地址和本地地址关联起来，下次使用pull\fetch就能直接拉取</p>
+<pre>
+<code class="language-git">git remote add origin https地址\ssh地址
+//例子
+git remote add origin git@github.com:bykevin/Linux_base.git</code>	
+</pre>
+<p>下面是pull\fetch使用的一些例子</p>
+<pre>
+<code class="language-git">//pull
+git pull origin 分支名
+//分支名写main就行</code>
+//fetch
+git fetch origin 分支名
+/*fetch和pull相比，执行更保守。在执行时，他会检查远程
+分支和本地分支是否存在冲突。这里由于只有一个分支，
+没啥区别*/
 </pre>
 			</div>
 		</div>

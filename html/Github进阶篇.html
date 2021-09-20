@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8"> 
-<title>Git简介及安装配置</title> 
+<title>Github进阶篇</title> 
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 <script src="../js/prism.js"></script>
 <link rel="icon" href="../src/index.ico" type="image/x-icon" />
@@ -39,9 +39,28 @@
 			<button id="return" v-on:click.left="Return"></button>
 	</div>
 	<div id="section">
-	    <h1>Git安装教程</h1>
+	    <h1>Github进阶篇</h1>
+		<h2>推送请求</h2>
+		推送只需要使用一条简单的push指令即可
+<pre>
+<code class="language-git">git push origin main</code>
+</pre>
 		<h2>Watch(监听)</h2>
+		<p>watch翻译为本地化就是关注，当你选择Watching，表示你以后会关注这个项目的所有动态，以后只要这个项目发生变动，如被别人提交了pull request、被别人发起了issue等等情况，你都会在自己的个人通知中心，收到一条通知消息，如果你设置了个人邮箱，那么你的邮箱也可能收到相应的邮件</p>
+		<img class="section_img" src="../src/watch.png" />
+		<h2>star(点赞)</h2>
+		<img class="section_img" src="../src/stars_1.png" />
+		<p>star在这里解释为`点赞`或者`收藏`更合适，当你点击 star,表示你喜欢这个项目或者通俗点，可以把他理解成朋友圈的点赞吧，表示对这个项目的支持。<br>
+不过相比朋友圈的点赞，github 里面会有一个列表，专门收集了你所有 start 过的项目，<br>
+点击 github 个人头像，可以看到 your star的条目，点击就可以查看你 star 过的所有项目了。如下图</p>
+		<img class="section_img" src="../src/stars_2.png" />
+		<h2>Fork(复刻)</h2>
+		<p>当选择 fork，相当于你自己有了一份原项目的拷贝，当然这个拷贝只是针对当时的项目文件，如果后续原项目文件发生改变，你必须通过其他的方式去同步。
+		一般来说，我们不需要使用 fork 这个功能，除非有一些项目，可能存在 bug 或者可以继续优化的地方，你想帮助原项目作者去完善这个项目或者单纯的想在原来项目基础上己维护一个属于自己项目</p>
+		<img class="section_img" src="../src/Fork.png" />
 		<h2>Issue(问题)</h2>
+		<p>可以把它想象成qq空间的评论功能，不过他支持更多格式和功能。</p>
+		<img class="section_img" src="../src/issue.png" />
 	</div>
 </div>
 <script src="../js/section_menu.js"></script>
