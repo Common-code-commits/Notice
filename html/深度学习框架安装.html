@@ -65,7 +65,7 @@
 	        各种第三方包安装问题。Anaconda利用工具/命令conda来进行package和environment的管理，并且已经包含了Python和相关的配套工具。<br>
 	        <b style="color:rgba(126,126,126,0.7)"><center>注意:安装Tensorflow不可能跳过Anaconda,如果你使用其他Python版本或原装Python那你将需要花费大量时间手动配置</center></b>
 	        <center><b>为了保证版本一致和不出现任何致命bug，请务必遵照以下步骤安装！！！！！！！：</b></center>
-	        <a href="../https://repo.anaconda.com/archive/Anaconda3-2020.11-Windows-x86_64.exe" download="https://repo.anaconda.com/archive/Anaconda3-2020.11-Windows-x86_64.exe">点击下载Anaconda</a>
+	        <a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe" download="https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe">点击下载Anaconda</a>
 	    </p>
 	    <p>
 	        下载完成之后打开，遇到不懂得就点下一步，最后一步，记得勾上第一个（添加环境变量 貌似英文是Add Path），尽管添加Anaconda环境变量会与
@@ -73,40 +73,40 @@
 	        自认为成功安装后，按以下几步检验是否安装（在命令提示器中进行）<br>
 	    </p>
 	    <p>
-	        1.检查Anaconda是否成功安装：<br>
-	<pre>
-	<code class="language-cmd">conda --version</code>
-	</pre>
+	        1.检查Anaconda是否成功安装：
+<pre>
+<code class="language-cmd">conda --version</code>
+</pre>
 	        <img class="section_img" src="../src/1.png" />
 	        2.检测目前安装了哪些环境：<br>
-	<pre>
-	<code class="language-cmd">conda info --envs </code>
-	</pre>
+<pre>
+<code class="language-cmd">conda info --envs </code>
+</pre>
 	        <img class="section_img" src="../src/2.png" />
 	        失败主要是第一步，如果第一步没有成功，说明你没有添加环境变量，如果你确定你已经添加了环境变量，依然失败，请以管理员权限再运行，如果还是不行，请重装或自行上网寻找解决办法
 	        上一步成功后，就要进入Anaconda Prompt安装TensorFlow<br>
 	        3.选择一个python版本安装（其实你没得选）<br>
-	<pre>
-	<code class="language-cmd">conda create --name tensorflow python=3.6.13</code>
-	</pre>
+<pre>
+<code class="language-cmd">conda create --name tensorflow python=3.6.13</code>
+</pre>
 	        <img class="section_img" src="../src/3.png" />
 	        4.激活环境<br>
-	<pre>
-	<code class="language-cmd">activate tensorflow</code>
-	</pre>
+<pre>
+<code class="language-cmd">activate tensorflow</code>
+</pre>
 	        <img class="section_img" src="../src/4.png" />
 	        5.tensorflow环境被成功添加<br>
-	<pre>
-	<code class="language-cmd">conda info --envs</code>
-	</pre>
+<pre>
+<code class="language-cmd">conda info --envs</code>
+</pre>
 	        <img class="section_img" src="../src/5.png" />
 	    </p>
 	    <h2 >CPU版安装</h2>
 	    <p>
 	        使用pip安装tensorflow
-	<pre>
-	<code class="language-python">pip install tensorflow==1.13.1 -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</code>
-	</pre>
+<pre>
+<code class="language-python">pip install tensorflow==1.13.1 -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</code>
+</pre>
 	        <img class="section_img" src="../src/6.png" />
 	    </p>
 	    <h2 >GPU版安装</h2>
@@ -114,9 +114,9 @@
 	        1.先安装CUDA<br>
 	        <a href="../https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_win10" download="https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_win10"> 点击下载 CUDA 10.0 版</a>
 	        <br>安装成功后，在Tensorflow环境下输入命令
-	<pre>
-	<code class="language-cmd">nvcc -V</code>
-	</pre>
+<pre>
+<code class="language-cmd">nvcc -V</code>
+</pre>
 	        <img class="section_img" src="../src/7.png" />
 	        <br>2.安装CUDNN<br>
 	        <a href="../https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.4.2/prod/10.0_20181213/cudnn-10.0-windows10-x64-v7.4.2.24.zip" download="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.4.2/prod/10.0_20181213/cudnn-10.0-windows10-x64-v7.4.2.24.zip"> 点击下载 CUDNN 7.4 版</a>
@@ -128,31 +128,31 @@
 	        cudnn\lib\x64 => CUDA\v10.0\lib\x64
 	    </p>
 	    4.使用pip安装tensorflow
-	<pre>
-	<code class="language-python">pip install tensorflow_gpu==1.13.1 -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</code>
-	</pre>
+<pre>
+<code class="language-python">pip install tensorflow_gpu==1.13.1 -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</code>
+</pre>
 	    <img class="section_img" src="../src/6.png" />
 	    </p>
 	    <h2>跑起来</h2>
 	    没有爆一大堆红字是一个安装成功的好兆头，接下来用程序验证你的tensorflow是否成功安装
-	<pre>
-	<code class="language-python">import tensorflow as tf
-	hello_constant = tf.constant('Hello World!')
-	
-	with tf.Session() as sess:
-	    output = sess.run(hello_constant)
-	    print(output.decode())</code>    
-	</pre>
+<pre>
+<code class="language-python">import tensorflow as tf
+hello_constant = tf.constant('Hello World!')
+
+with tf.Session() as sess:
+	output = sess.run(hello_constant)
+	print(output.decode())</code>    
+</pre>
 	    <img class="section_img" src="../src/8.png" />
 	    如果安装的是GPU版请使用下面的程序
-	<pre>
-	<code class="language-python">import tensorflow as tf
-	a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
-	b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
-	c = tf.matmul(a, b)
-	sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
-	print(sess.run(c)))</code>
-	</pre>
+<pre>
+<code class="language-python">import tensorflow as tf
+a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+print(sess.run(c)))</code>
+</pre>
 	    <img class="section_img" src="../src/9.png" />
 	    <a href="../test.py" download="test.py"> 点击下载 test.py</a>
 	    <a href="../test_gpu.py" download="test_gpu.py"> 点击下载 test_gpu.py</a>
